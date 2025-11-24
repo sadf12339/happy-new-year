@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致雨霏的新年祝福</title>
+    <style>
+        /* 全局样式 - 使用本地字体回退方案 */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap');
+        
+        /* 确保字体回退，即使无法加载Google Fonts */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', 'Microsoft YaHei', 'SimSun', serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* 信封样式 */
+        #envelope {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f9f9f9;
+            background-image: linear-gradient(135deg, #f9f9f9 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 1.5s ease-in-out;
+            transform-origin: bottom center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        
+        #envelope.open {
+            transform: scaleY(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .envelope-content {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .envelope-content h2 {
+            font-family: 'Dancing Script', 'STKaiti', 'KaiTi', cursive;
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .envelope-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        /* 爱心封印 */
+        .seal-heart {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background-color: #ff6b6b;
+            transform: rotate(45deg);
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .seal-heart:hover {
+            transform: rotate(45deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .seal-heart:before,
+        .seal-heart:after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .seal-heart:before {
+            top: -60px;
+            left: 0;
+        }
+        
+        .seal-heart:after {
+            top: 0;
+            left: -60px;
+        }
+        
+        .seal-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            color: white;
+            font-family: 'Dancing Script', 'STKaiti', 'KaiTi', cursive;
+            font-size: 1.8rem;
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 2;
+        }
+        
+        /* 信件内容初始状态 */
+        .container {
+            opacity: 0;
+            transition: opacity 1s ease 1s;
+        }
+        
+        .container.visible {
+            opacity: 1;
+        }
+        
+        /* 雪花容器 */
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        /* 主容器 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 20;
+        }
+        
+        /* 页面标题 */
+        header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80"><path fill="%23ffffff" fill-opacity="0.2" d="M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></svg>');
+            opacity: 0.3;
+        }
+        
+        header h1 {
+            font-family: 'Dancing Script', 'STKaiti', 'KaiTi', cursive;
+            font-size: 3.5rem;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        header .subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 内容部分 */
+        .section {
+            padding: 30px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .content-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+        }
+        
+        .section h2 {
+            font-family: 'Dancing Script', 'STKaiti', 'KaiTi', cursive;
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .section p:first-of-type {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        /* 底部样式 */
+        footer {
+            background: linear-gradient(135deg, #fed6e3 0%, #a8edea 100%);
+            padding: 30px;
+            text-align: center;
+            font-family: 'Dancing Script', 'STKaiti', 'KaiTi', cursive;
+        }
+        
+        footer p {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin: 5px 0;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* 信件展开后的内容动画 */
+        @keyframes contentReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .container.visible {
+            animation: contentReveal 1.5s ease-out;
+        }
+        
+        /* 爱心装饰 */
+        .heart {
+            position: absolute;
+            background-color: #ff6b6b;
+            width: 15px;
+            height: 15px;
+            transform: rotate(45deg);
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+        }
+        
+        .heart:before {
+            top: -8px;
+            left: 0;
+        }
+        
+        .heart:after {
+            top: 0;
+            left: -8px;
+        }
+        
+        /* 音乐控制按钮 */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .music-toggle.muted {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        }
+        
+        /* 彩色气泡装饰 */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 5;
+            animation: floatBubble 8s ease-in-out infinite;
+        }
+        
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-50px) translateX(20px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.6;
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section,
+            .content-box {
+                padding: 20px;
+            }
+            
+            .section p {
+                font-size: 1rem;
+            }
+            
+            .music-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section,
+            .content-box {
+                padding: 15px;
+            }
+            
+            .music-toggle {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* 互动问题部分样式 */
+        .question-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .question-text {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .option-btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .accept-btn {
+            background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+            color: white;
+        }
+        
+        .accept-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
+        }
+        
+        .reject-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+        
+        .reject-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* 结果容器样式 */
+        .result-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .result-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .couple-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .romantic-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .romantic-text p {
+            margin: 10px 0;
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        .close-btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(149, 165, 166, 0.4);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .question-text {
+                font-size: 1.5rem;
+            }
+            
+            .options-container {
+                gap: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .option-btn {
+                width: 200px;
+            }
+            
+            .result-content {
+                padding: 20px;
+            }
+            
+            .romantic-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 信封容器 -->
+    <div id="envelope">
+        <div class="envelope-content">
+            <h2>致雨霏的新年祝福</h2>
+            <p>点击爱心封印，开启祝福信 💌</p>
+            <div class="seal-heart">
+                <span class="seal-text">开启</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 雪花背景容器 -->
+    <div id="snow-container"></div>
+    
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 页面标题 -->
+        <header>
+            <h1>致雨霏的新年祝福</h1>
+            <p class="subtitle">新年快乐 🌟</p>
+        </header>
+        
+        <!-- 新年祝福部分 -->
+        <section class="section new-year">
+            <div class="content-box">
+                <h2>新年快乐，雨霏</h2>
+                <p>雨霏：</p>
+                <p>当新年的钟声即将敲响，我想向你送上最真挚的祝福。在这个特别的时刻，祝你新年快乐！愿新的一年里，你的笑容如阳光般温暖，你的心情如春风般舒畅。</p>
+                <p>雨霏，很开心能认识你这样优秀的朋友。新的一年，愿我们的友谊更加深厚，共同创造更多美好的回忆。</p>
+            </div>
+        </section>
+        
+        <!-- 感谢陪伴部分 -->
+        <section class="section gratitude">
+            <div class="content-box">
+                <h2>感谢有你这样的朋友</h2>
+                <p>感谢你一直以来的陪伴和支持，在我遇到困难时给我鼓励，在我取得进步时与我分享喜悦。你的友谊是我生命中宝贵的财富。</p>
+                <p>雨霏，谢谢你的理解和包容，谢谢你给我带来的快乐时光。能有你这样的朋友，我感到非常幸运。未来的日子里，我会更加珍惜我们的友谊。</p>
+            </div>
+        </section>
+        
+        <!-- 高考祝福部分 -->
+        <section class="section exam-wish">
+            <div class="content-box">
+                <h2>高考加油，雨霏</h2>
+                <p>雨霏，我知道高考对你来说是当前最重要的挑战。我相信你一定能够全力以赴，发挥出自己最好的水平。每一份努力都会有回报，每一滴汗水都不会白流。</p>
+                <p>不管结果如何，你都是最棒的。作为朋友，我会一直在你身后支持你，为你加油鼓劲。相信自己，你一定能够实现自己的梦想！</p>
+            </div>
+        </section>
+        
+        <!-- 未来期许部分 -->
+        <section class="section future">
+            <div class="content-box">
+                <h2>对未来的美好期许</h2>
+                <p>雨霏，关于未来，我充满了美好的期待。希望我们能一起经历更多有趣的事情，一起成长，一起进步。</p>
+                <p>作为朋友，我期待看到你实现自己的理想，成为更好的自己。相信你的未来一定会充满光明和精彩。</p>
+                <p>雨霏，愿我们的友谊长存，一起迎接未来的每一个挑战！</p>
+            </div>
+        </section>
+        
+        <!-- 底部签名 -->
+        <footer>
+            <p>你的政</p>
+            <p>🌟 新年快乐 🌟</p>
+        </footer>
+        
+        <!-- 互动问题部分 -->
+        <section class="section question-section">
+            <div class="content-box">
+                <h2 class="question-text">你愿意和我一起，相约更加精彩未来吗？</h2>
+                <div class="options-container">
+                    <button id="accept-btn" class="option-btn accept-btn">愿意</button>
+                    <button id="reject-btn" class="option-btn reject-btn">抱歉</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 结果展示区域 -->
+        <div id="result-container" class="result-container">
+            <div class="result-content">
+                <img id="couple-image" src="" alt="情侣漫步江南小镇" class="couple-image">
+                <div id="romantic-text" class="romantic-text"></div>
+                <button id="close-result" class="close-btn">关闭</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音频元素 - Flower Dance背景音乐 -->
+    <audio id="background-music" loop>
+        <!-- 使用相对路径指向本地音频文件 -->
+        <source src="flower dance.mp3" type="audio/mpeg">
+        <!-- 在线音频源作为备用 -->
+        <source src="https://music.163.com/song/media/outer/url?id=178948.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <button id="music-toggle" class="music-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+    </button>
+    
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 信封开启交互
+            const envelope = document.getElementById('envelope');
+            const sealHeart = document.querySelector('.seal-heart');
+            const container = document.querySelector('.container');
+            
+            // 点击爱心开启信封
+            sealHeart.addEventListener('click', function() {
+                // 信封打开动画
+                envelope.classList.add('open');
+                
+                // 显示内容
+                setTimeout(() => {
+                    container.classList.add('visible');
+                    
+                    // 创建雪花和爱心效果
+                    createSnowflakes();
+                    createFloatingHearts();
+                    createBubbles();
+                    setupScrollAnimation();
+                    setupMusicPlayback();
+                    setupQuestionButtons();
+                    
+                    // 延迟启动标题动画
+                    setTimeout(animateTitle, 500);
+                }, 1000);
+            });
+            
+            // 先不创建装饰效果，等信封打开后再创建
+            // createSnowflakes();
+            // createFloatingHearts();
+            
+            // 创建彩色气泡装饰
+            createBubbles();
+            
+            // 添加点击页面出现爱心特效
+            document.addEventListener('click', createHeartAtPosition);
+            
+            // 添加滚动动画
+            setupScrollAnimation();
+        });
+        
+        // 创建雪花效果
+        function createSnowflakes() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowflakeCount = 50;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                createSnowflake(snowContainer);
+            }
+            
+            // 定期创建新雪花
+            setInterval(() => {
+                if (document.visibilityState === 'visible') {
+                    createSnowflake(snowContainer);
+                }
+            }, 1000);
+        }
+        
+        function createSnowflake(container) {
+            const snowflake = document.createElement('div');
+            
+            // 随机雪花大小
+            const size = Math.random() * 10 + 5;
+            
+            // 随机颜色（白色和淡粉色）
+            const colors = ['#fff', '#ffebee', '#fce4ec'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            snowflake.style.position = 'absolute';
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+            snowflake.style.background = color;
+            snowflake.style.borderRadius = '50%';
+            snowflake.style.opacity = Math.random() * 0.8 + 0.2;
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.top = '-20px';
+            snowflake.style.pointerEvents = 'none';
+            snowflake.style.zIndex = '10';
+            
+            // 添加雪花动画
+            const duration = Math.random() * 10 + 10; // 动画持续时间
+            const delay = Math.random() * 5; // 延迟时间
+            
+            snowflake.style.animation = `falling ${duration}s linear ${delay}s infinite`;
+            
+            // 创建下降动画
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes falling {
+                    0% {
+                        transform: translateY(0) translateX(0) rotate(0deg);
+                    }
+                    100% {
+                        transform: translateY(100vh) translateX(${Math.random() * 100 - 50}px) rotate(360deg);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            container.appendChild(snowflake);
+            
+            // 动画结束后移除雪花
+            setTimeout(() => {
+                if (snowflake.parentNode) {
+                    snowflake.parentNode.removeChild(snowflake);
+                }
+            }, (duration + delay) * 1000);
+        }
+        
+        // 创建浮动爱心效果
+        function createFloatingHearts() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                // 为每个区域创建几个爱心
+                const heartCount = 5;
+                
+                for (let i = 0; i < heartCount; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    
+                    // 随机位置
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.top = `${Math.random() * 100}%`;
+                    
+                    // 随机大小
+                    const size = Math.random() * 10 + 5;
+                    heart.style.width = `${size}px`;
+                    heart.style.height = `${size}px`;
+                    
+                    // 随机动画延迟和持续时间
+                    const delay = Math.random() * 5;
+                    const duration = Math.random() * 3 + 3;
+                    heart.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                    
+                    // 随机不透明度
+                    heart.style.opacity = Math.random() * 0.4 + 0.2;
+                    
+                    section.appendChild(heart);
+                }
+            });
+        }
+        
+        // 点击页面时在点击位置创建爱心
+        function createHeartAtPosition(event) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            
+            // 设置位置为点击位置
+            heart.style.left = `${event.clientX}px`;
+            heart.style.top = `${event.clientY}px`;
+            heart.style.position = 'fixed';
+            heart.style.zIndex = '100';
+            heart.style.pointerEvents = 'none';
+            
+            // 动画效果
+            heart.style.animation = 'heartExplosion 1s ease-out forwards';
+            
+            // 添加动画样式
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes heartExplosion {
+                    0% {
+                        transform: scale(0) rotate(45deg);
+                        opacity: 1;
+                    }
+                    50% {
+                        transform: scale(1.5) rotate(45deg);
+                        opacity: 0.8;
+                    }
+                    100% {
+                        transform: scale(0) translateY(-50px) rotate(45deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(heart);
+            
+            // 动画结束后移除
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 1000);
+        }
+        
+        // 设置滚动动画
+        function setupScrollAnimation() {
+            const sections = document.querySelectorAll('.section');
+            
+            function checkScroll() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // 当元素进入视口时添加动画
+                    if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // 初始设置
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // 初始检查
+            checkScroll();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkScroll);
+        }
+        
+        // 设置互动问题的按钮功能
+        function setupQuestionButtons() {
+            const acceptBtn = document.getElementById('accept-btn');
+            const rejectBtn = document.getElementById('reject-btn');
+            const resultContainer = document.getElementById('result-container');
+            const closeResultBtn = document.getElementById('close-result');
+            const coupleImage = document.getElementById('couple-image');
+            const romanticText = document.getElementById('romantic-text');
+            let rejectCount = 0;
+            
+            // "愿意"按钮点击事件
+            acceptBtn.addEventListener('click', function() {
+                // 设置情侣图片（使用本地图片）
+                coupleImage.src = 'd891373396f19eb5.jpg';
+                
+                // 设置浪漫文案
+                romanticText.innerHTML = `
+                    <p>雨霏，最近的你，还好吗？</p>
+                    <p>回忆起最初的相遇，仿佛一场虚幻的梦。</p>
+                    <p>阴差阳错的，我和你在那个暑期相识相知。</p>
+                    <p>你问过我是否相信缘分，我想，我们的相遇正是这样，就是我的缘。</p>
+                    <p>你并不自信，对自己的未来充斥着迷茫。</p>
+                    <p>但我想说的是，雨霏，你真的很好，你值得拥有世间一切美好。</p>
+                    <p>我很幸运，能和你相遇，也很荣幸，能在你的生命中停留。</p>
+                    <p>你在我需要倾诉的时刻接纳我的无力，我也很荣幸能陪你消化你的情绪</p>
+                    <p>你说没人问过你是否开心,心情不好会躲起来自己一个人消化</p>
+                    <p>你知道吗？我看到这句话时，想到了一只委屈的猫。我真想抱抱你。</p>
+                    <p>如果真的没有人会在意这么好的孩子</p>
+                    <p>我想告诉你，我在意，我想和你共同承受喜悲</p>
+                    <p>你的快乐，你的委屈，所以你愿意分享的，所以你希望陪伴的</p>
+                    <p>如果真的可以这样，我真的会很荣幸很荣幸</p>
+                    <p>在新的一年里，祝你所愿皆成，万事顺遂，能够收获世间的一切美好，因为你值得</p>
+                    <p>雨霏，感谢你出现在我的生命里，让平凡的日子多了一份温暖的期待。</p>
+                `;
+                
+                // 显示结果容器
+                resultContainer.style.display = 'flex';
+                
+                // 创建更多爱心效果
+                createFloatingHearts();
+                setTimeout(createFloatingHearts, 500);
+                setTimeout(createFloatingHearts, 1000);
+            });
+            
+            // "抱歉"按钮点击事件
+            rejectBtn.addEventListener('click', function() {
+                rejectCount++;
+                
+                switch(rejectCount) {
+                    case 1:
+                        rejectBtn.textContent = '再考虑一下？';
+                        break;
+                    case 2:
+                        rejectBtn.textContent = '你真的忍心吗';
+                        break;
+                    case 3:
+                        rejectBtn.textContent = '我会哭的';
+                        break;
+                    default:
+                        // 让按钮跑开
+                        const container = document.querySelector('.container');
+                        const containerRect = container.getBoundingClientRect();
+                        const buttonRect = rejectBtn.getBoundingClientRect();
+                        
+                        // 随机位置，确保在容器内且不在接受按钮附近
+                        let newX, newY;
+                        const acceptBtnRect = acceptBtn.getBoundingClientRect();
+                        const minDistance = 150; // 与接受按钮的最小距离
+                        
+                        // 尝试几次确保位置合适
+                        for (let attempt = 0; attempt < 5; attempt++) {
+                            newX = Math.random() * (containerRect.width - buttonRect.width);
+                            newY = Math.random() * (containerRect.height - buttonRect.height);
+                            
+                            // 计算与接受按钮的距离
+                            const distX = Math.abs(acceptBtnRect.left - containerRect.left - newX);
+                            const distY = Math.abs(acceptBtnRect.top - containerRect.top - newY);
+                            const distance = Math.sqrt(distX * distX + distY * distY);
+                            
+                            // 如果距离足够远，使用这个位置
+                            if (distance > minDistance) break;
+                        }
+                        
+                        // 添加动画效果
+                        rejectBtn.style.transition = 'all 0.3s ease';
+                        rejectBtn.style.position = 'absolute';
+                        rejectBtn.style.left = `${newX}px`;
+                        rejectBtn.style.top = `${newY}px`;
+                        rejectBtn.textContent = '不要这样...';
+                        break;
+                }
+            });
+            
+            // 关闭结果按钮点击事件
+            closeResultBtn.addEventListener('click', function() {
+                resultContainer.style.display = 'none';
+            });
+        }
+        
+        // 设置音乐播放和控制
+        function setupMusicPlayback() {
+            const audio = document.getElementById('background-music');
+            const musicToggle = document.getElementById('music-toggle');
+            let isPlaying = false;
+
+            // 优化的错误处理函数 - 本地音频优先
+            function handleAudioError() {
+                console.error('音频加载失败，请确保本地有flower-dance.mp3文件');
+                
+                // 创建明确的提示，指导用户添加本地音频文件
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                  position: fixed;
+                  bottom: 20px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background: rgba(0, 0, 0, 0.9);
+                  color: white;
+                  padding: 15px 25px;
+                  border-radius: 8px;
+                  z-index: 9999;
+                  font-size: 15px;
+                  text-align: center;
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+                  max-width: 90%;
+                `;
+                notification.textContent = '正在使用: flower dance.mp3';
+                document.body.appendChild(notification);
+                
+                // 10秒后移除提示，给用户足够时间阅读
+                setTimeout(() => notification.remove(), 10000);
+            }
+
+            // 成功加载处理
+            audio.addEventListener('canplay', () => {
+                console.log('音乐文件准备就绪');
+            });
+
+            // 错误处理
+            audio.addEventListener('error', handleAudioError);
+
+            // 音乐控制按钮点击事件
+            musicToggle.addEventListener('click', function() {
+                try {
+                    if (audio.paused || !isPlaying) {
+                        audio.play()
+                          .then(() => {
+                            console.log('《Flower Dance》播放成功');
+                            isPlaying = true;
+                            musicToggle.classList.remove('muted');
+                          })
+                          .catch(error => {
+                            console.error('播放失败:', error);
+                            alert('请点击页面任意位置，然后再次点击音乐按钮播放《Flower Dance》');
+                            // 尝试直接加载音频
+                            audio.load();
+                          });
+                    } else {
+                        audio.pause();
+                        isPlaying = false;
+                        musicToggle.classList.add('muted');
+                    }
+                } catch (e) {
+                    console.error('播放控制出错:', e);
+                }
+            });
+
+            // 页面交互时立即尝试加载音频
+            document.addEventListener('click', function() {
+                audio.load(); // 触发音频加载
+            }, { once: true });
+        }
+        
+        // 创建彩色气泡装饰
+        function createBubbles() {
+            const bubbleCount = 15;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                createBubble();
+            }
+            
+            // 定期创建新气泡
+            setInterval(() => {
+                if (document.visibilityState === 'visible') {
+                    createBubble();
+                }
+            }, 2000);
+        }
+        
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            
+            // 随机大小
+            const size = Math.random() * 100 + 50;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            // 随机颜色
+            const colors = ['rgba(255, 107, 107, 0.2)', 'rgba(78, 205, 196, 0.2)', 
+                           'rgba(254, 214, 227, 0.2)', 'rgba(168, 237, 234, 0.2)'];
+            bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            // 随机位置
+            bubble.style.left = `${Math.random() * 100}vw`;
+            bubble.style.bottom = '-100px';
+            
+            // 随机动画持续时间
+            const duration = Math.random() * 20 + 15;
+            bubble.style.animation = `floatBubble ${duration}s ease-in-out infinite`;
+            
+            document.body.appendChild(bubble);
+            
+            // 动画结束后移除气泡
+            setTimeout(() => {
+                if (bubble.parentNode) {
+                    bubble.parentNode.removeChild(bubble);
+                }
+            }, duration * 1000);
+        }
+        
+        // 添加标题动画效果
+        function animateTitle() {
+            const title = document.querySelector('header h1');
+            let index = 0;
+            const text = title.textContent;
+            title.textContent = '';
+            
+            function typeWriter() {
+                if (index < text.length) {
+                    title.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 150);
+                }
+            }
+            
+            // 开始打字效果
+            typeWriter();
+        }
+        
+        // 不再自动启动标题动画，等待信封打开后再启动
+        // animateTitle();
+    </script>
+</body>
+</html>
